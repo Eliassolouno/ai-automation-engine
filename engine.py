@@ -46,7 +46,9 @@ class MultiAgentDispatcher:
             
             for attempt in range(1, task.retries + 1):
                 try:
-                    await asyncio.sleep(0.05)
+                    # Simulated autonomous execution pipeline with schema check
+                    await asyncio.sleep(0.05) # Async I/O boundary
+                    
                     if not task.action:
                         raise ValueError("Invalid action specified in task payload")
                         

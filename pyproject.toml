@@ -1,0 +1,41 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ai-automation-engine"
+version = "0.2.0"
+description = "Hexagonal Multi-Agent Control Plane and Autonomous Workflow Orchestrator"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [
+    { name = "Elias Joel Mendoza Yzaguirre", email = "eliasjoelmendozayzaguirre@gmail.com" }
+]
+keywords = ["agents", "autonomous", "orchestration", "multi-agent", "llm-gateway", "asyncio"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence"
+]
+dependencies = [
+    "pydantic>=2.7.0",
+    "httpx>=0.27.0",
+    "typer>=0.12.0",
+    "rich>=13.7.0",
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0"
+]
+
+[project.scripts]
+aae = "aae.apps.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aae"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
